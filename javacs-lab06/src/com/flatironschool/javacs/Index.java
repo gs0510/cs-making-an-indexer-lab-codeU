@@ -59,6 +59,20 @@ public class Index {
 		
 		// for each term in the TermCounter, add the TermCounter to the index
         // TODO: fill this in
+        TermCounter tc = new TermCounter(url);
+		tc.processElements(paragraphs);
+		for(String term: tc.keySet())
+		{
+			if(index.containsKey(term))
+			{
+				((HashSet<TermCounter>)index.get(term)).add(tc);
+			}
+			else{
+				HashSet<TermCounter> hs = new HashSet<TermCounter>();
+				hs.add(tc);
+				index.put(term,hs);	
+			}
+		}
 	}
 
 	/**

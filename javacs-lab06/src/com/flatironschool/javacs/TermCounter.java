@@ -26,6 +26,7 @@ public class TermCounter {
 		this.map = new HashMap<String, Integer>();
 	}
 	
+	
 	public String getLabel() {
 		return label;
 	}
@@ -37,7 +38,12 @@ public class TermCounter {
 	 */
 	public int size() {
         // TODO: fill this in.
-		return -1;
+        int sum=0;
+        for (Map.Entry<String,Integer> entry: map.entrySet())
+        {
+        	sum+=(int)get(entry.getKey());
+        }
+		return sum;
 	}
 
 	/**
